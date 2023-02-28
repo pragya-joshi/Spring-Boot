@@ -22,7 +22,13 @@ public class BookService {
 	}
 	
 	public Book getBookById(int id) {
-		Book book=list.stream().filter(b->b.getId()==id).findFirst().get();
+		Book book=null;
+		try {
+			book=list.stream().filter(b->b.getId()==id).findFirst().get();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		return book;
 	}
 	
